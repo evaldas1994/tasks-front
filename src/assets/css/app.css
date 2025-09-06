@@ -4,8 +4,11 @@ html, body, #app {
   padding: 0;
 }
 body {
+  /*background: radial-gradient(circle,*/
+  /*#FFA94D 0%,*/
+  /*#1A0033 100%*/
+  /*);*/
   background: radial-gradient(circle,
-  #FFA94D 0%,
   #6A0DAD 24%,
   #1A0033 100%
   );

@@ -8,7 +8,20 @@
 
     <!-- blocks container -->
     <div class="blocks-container flex-grow-1 overflow-auto px-2" style="overflow-x: hidden">
-      <div v-if="tasks.length > 0" class="row g-3 m-0">
+      <!-- Loading -->
+      <div v-if="loading" class="row g-3 m-0">
+        <div class="col-12">
+          <div class="glass-card glass-engraved d-flex justify-content-center align-items-center p-3">
+            <div class="spinner-border text-light me-2" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            Kraunama...
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks -->
+      <div v-else-if="tasks.length > 0" class="row g-3 m-0">
         <div class="col-6" v-for="task in tasks" :key="task.id">
           <TaskCard
             :task="task"
