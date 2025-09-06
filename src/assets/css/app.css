@@ -1,0 +1,74 @@
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: radial-gradient(circle,
+  #FFA94D 0%,
+  #6A0DAD 24%,
+  #1A0033 100%
+  );
+  background-size: cover;
+}
+
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.block {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-family: 'Kode Mono', monospace;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 150px;
+}
+
+.glass-engraved {
+  font-family: 'Kode Mono', monospace;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow:
+    1px 1px 2px rgba(0,0,0,0.5),   /* šešėlis apačioje (įspaustas efektas) */
+    -1px -1px 2px rgba(255,255,255,0.3); /* viršuje šviesos efektas */
+}
+
+/* Jei naudoji ikonėles (pvz. Bootstrap Icons ar FontAwesome) */
+.glass-engraved i,
+.glass-engraved svg {
+  color: rgba(255, 255, 255, 0.6);
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5))
+  drop-shadow(-1px -1px 2px rgba(255,255,255,0.3));
+}
+
+.footer-buttons {
+  position: sticky;
+  bottom: 0;
+  padding: 0.5rem 0;
+  backdrop-filter: blur(8px);
+}
+
+.btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.3);
+  color: #fff;
+  font-family: 'Kode Mono', monospace;
+  border: none;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.5);
+}
