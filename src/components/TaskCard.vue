@@ -6,27 +6,28 @@
   >
     <!-- viršus: laikas + ikona -->
     <div>
-      <div
-        class="position-relative glass-engraved d-flex justify-content-between align-items-center w-100 mb-3"
-        style="min-width: 0"
-      >
-        <div class="d-flex">
-          <div>
-            <span>{{ task.time }}</span>
-          </div>
-          <div class="glass-engraved text-card-content ms-2 mt-2">
+
+        <div class="glass-engraved w-100 mb-3 d-flex align-items-center justify-content-between">
+
+
+          <span>{{ task.time }}</span>
+
+
+          <div class="glass-engraved text-card-content">
             <div>
               <i class="bi bi-trophy"></i>
-              <span>{{ task.streak }}</span>
+              <span class="ps-1">{{ task.streak }}</span>
             </div>
             <div>
               <i class="bi bi-clock"></i>
-              <span>{{ task.duration_in_minutes }}</span>
+              <span class="ps-1">{{ task.duration_in_minutes }}</span>
             </div>
           </div>
+
+
+            <i class="bi bi-lightning-charge"></i>
         </div>
-        <i class="bi bi-lightning-charge"></i>
-      </div>
+
     </div>
 
     <!-- apačia: tekstas -->

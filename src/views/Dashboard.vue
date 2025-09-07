@@ -57,6 +57,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import axios from '@/plugins/axios'
 import TaskCard from '@/components/TaskCard.vue'
+import gsap from "gsap"
 
 const tasks = ref([])
 const loading = ref(true)
