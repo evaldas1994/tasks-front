@@ -4,7 +4,7 @@
     <header class="row-header text-center text-white"></header>
 
     <!-- big box -->
-    <div class="glass-card mb-3 flex-shrink-0" style="height: 200px">
+    <div class="glass-card mb-3 flex-shrink-0 overflow-y-scroll" style="height: 200px">
         <ul class="list-group list-group-flush glass-engraved" style="background: none;">
           <li
             v-for="taskTemplate in taskTemplates"
