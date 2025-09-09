@@ -10,10 +10,10 @@
         <div class="glass-engraved w-100 mb-3 d-flex align-items-center justify-content-between">
 
 
-          <span>{{ task.time }}</span>
+          <span class="font-size-rem-1-5">{{ task.time }}</span>
 
 
-          <div class="glass-engraved text-card-content">
+          <div class="glass-engraved font-size-rem-0-5">
             <div>
               <i class="bi bi-trophy"></i>
               <span class="ps-1">{{ task.streak }}</span>
@@ -31,11 +31,11 @@
     </div>
 
     <!-- apačia: tekstas -->
-    <div class="glass-engraved w-100 text-card-title" style="min-width: 0">
+    <div class="glass-engraved w-100 text-card-title font-size-rem-1-0" style="min-width: 0">
       {{ task.name }}
     </div>
 
-    <div class="glass-engraved w-100 text-card-content" style="min-width: 0">
+    <div class="glass-engraved w-100 font-size-rem-0-4" style="min-width: 0">
       {{ task.description }}
     </div>
   </div>
@@ -51,13 +51,6 @@ defineEmits(['select'])
 </script>
 
 <style scoped>
-.text-card-title {
-  font-size: 16px;
-}
-
-.text-card-content {
-  font-size: 6px;
-}
 
 .selected-task {
   outline: 2px solid gray;

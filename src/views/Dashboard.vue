@@ -4,7 +4,19 @@
     <header class="row-header text-center text-white"></header>
 
     <!-- big box -->
-    <div class="glass-card mb-3 flex-shrink-0" style="height: 200px"></div>
+    <div class="glass-card mb-3 flex-shrink-0" style="height: 200px">
+        <ul class="list-group list-group-flush glass-engraved" style="background: none;">
+          <li
+            v-for="taskTemplate in taskTemplates"
+            :key="taskTemplate.id"
+            class="list-group-item d-flex justify-content-between align-items-center"
+            style="background: none;"
+          >
+            <span class="font-size-rem-0-8">{{ taskTemplate.name }}</span>
+            <span class="badge bg-transparent rounded-pill font-size-rem-0-7" style="background: none;">{{ taskTemplate.streak }} / {{ taskTemplate.streak_max }}</span>
+          </li>
+        </ul>
+    </div>
 
     <!-- blocks container -->
     <div class="blocks-container flex-grow-1 overflow-auto px-2" style="overflow-x: hidden">
@@ -60,6 +72,7 @@ import TaskCard from '@/components/TaskCard.vue'
 import gsap from "gsap"
 
 const tasks = ref([])
+const taskTemplates = ref([])
 const loading = ref(true)
 const error = ref(null)
 
@@ -93,7 +106,7 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 
-const fetchData = async () => {
+const fetchTasks = async () => {
   try {
     const res = await axios.get('/api/tasks')
     tasks.value = res.data.data
@@ -104,15 +117,28 @@ const fetchData = async () => {
   }
 }
 
+const fetchTaskTemplates = async () => {
+  try {
+    const res = await axios.get('/api/task-templates')
+    taskTemplates.value = res.data.data
+  } catch (err) {
+    error.value = err.response?.data?.message || 'Nepavyko gauti užduočių šablonų'
+  } finally {
+    loading.value = false
+  }
+}
+
 const handleVisibilityChange = () => {
   if (document.visibilityState === "visible") {
-    fetchData()
+    fetchTaskTemplates();
+    fetchTasks();
   }
 }
 
 onMounted(() => {
   document.addEventListener("visibilitychange", handleVisibilityChange)
-  fetchData()
+  fetchTaskTemplates()
+  fetchTasks()
 })
 
 onUnmounted(() => {
