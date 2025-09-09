@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onActivated, onBeforeUnmount, onUnmounted } from 'vue'
 import axios from '@/plugins/axios'
 import TaskCard from '@/components/TaskCard.vue'
 import gsap from "gsap"
@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 
-onMounted(async () => {
+const fetchData = async () => {
   try {
     const res = await axios.get('/api/tasks')
     tasks.value = res.data.data
@@ -106,7 +106,23 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
+}
+
+const handleVisibilityChange = () => {
+  if (document.visibilityState === "visible") {
+    fetchData()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("visibilitychange", handleVisibilityChange)
 })
+
+onUnmounted(() => {
+  document.removeEventListener("visibilitychange", handleVisibilityChange)
+})
+
+
 
 const completeTask = async () => {
   if (!selectedTaskId.value) return
