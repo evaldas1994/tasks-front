@@ -13,7 +13,10 @@
             style="background: none;"
           >
             <span class="font-size-rem-0-8">{{ taskTemplate.name }}</span>
-            <span class="badge bg-transparent rounded-pill font-size-rem-0-7" style="background: none;">{{ taskTemplate.streak }} / {{ taskTemplate.streak_max }}</span>
+            <div>
+              <i class="bi bi-trophy font-size-rem-0-8"></i>
+              <span class="badge bg-transparent rounded-pill font-size-rem-0-7" style="background: none;">{{ taskTemplate.streak }} / {{ taskTemplate.streak_max }}</span>
+            </div>
           </li>
         </ul>
     </div>
