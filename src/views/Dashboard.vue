@@ -162,6 +162,10 @@ const completeTask = async () => {
 
     // po įvykdymo atžymim pasirinktą
     selectedTaskId.value = null
+
+    // ir atnaujinam informaciją
+    fetchTaskTemplates();
+
   } catch (err) {
     console.error('Nepavyko pažymėti užduoties kaip atliktos:', err.response?.data || err)
   }
