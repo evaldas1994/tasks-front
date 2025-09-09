@@ -89,10 +89,6 @@ const handleClickOutside = (event) => {
   }
 }
 
-// onMounted(() => {
-//   document.addEventListener('click', handleClickOutside)
-// })
-
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
 })
@@ -116,6 +112,7 @@ const handleVisibilityChange = () => {
 
 onMounted(() => {
   document.addEventListener("visibilitychange", handleVisibilityChange)
+  fetchData()
 })
 
 onUnmounted(() => {
