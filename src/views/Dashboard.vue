@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex flex-column vh-100 ">
+  <div class="d-flex flex-column vh-100 mx-2 gap-2">
     <!-- header -->
     <header class="row-header text-center text-white"></header>
 
     <!-- big box -->
-    <div class="glass-card mb-3 flex-shrink-0 overflow-y-scroll mx-2" style="height: 200px">
+    <div class="glass-card flex-shrink-0 overflow-y-scroll" style="height: 200px">
         <ul class="list-group list-group-flush glass-engraved" style="background: none;">
           <li
             v-for="taskTemplate in taskTemplates"
@@ -24,7 +24,7 @@
     <!-- blocks container -->
     <div class="blocks-container flex-grow-1 overflow-auto" style="overflow-x: hidden">
       <!-- Loading -->
-      <div v-if="loading" class="row g-3 m-0">
+      <div v-if="loading" class="row g-2 m-0">
         <div class="col-12">
           <div class="glass-card glass-engraved d-flex justify-content-center align-items-center p-3">
             <div class="spinner-border text-light me-2" role="status">
@@ -36,16 +36,26 @@
       </div>
 
       <!-- Tasks -->
-      <div v-else-if="tasks.length > 0" class="row g-3 m-0">
-        <div class="col-6" v-for="task in tasks" :key="task.id">
-          <TaskCard
-            :task="task"
-            :selected="selectedTaskId === task.id"
-            @select="toggleSelect"
-          />
+      <div v-else-if="tasks.length > 0" class="row g-2 m-0">
+<!--        <div class="col-6 m-0 px-0 g-2" v-for="task in tasks" :key="task.id">-->
+<!--          <TaskCard-->
+<!--            :task="task"-->
+<!--            :selected="selectedTaskId === task.id"-->
+<!--            @select="toggleSelect"-->
+<!--          />-->
+<!--        </div>-->
+        <div class="d-flex flex-wrap gap-2 m-0 p-0">
+          <div class="task-col" v-for="task in tasks" :key="task.id">
+            <TaskCard
+              :task="task"
+              :selected="selectedTaskId === task.id"
+              @select="toggleSelect"
+            />
+          </div>
         </div>
+
       </div>
-      <div v-else class="row g-3 m-0">
+      <div v-else class="row g-2 m-0">
         <div class="col-12">
           <div class="glass-card glass-engraved d-flex justify-content-center">Užduotys atliktos!</div>
         </div>
@@ -204,5 +214,8 @@ const completeTask = async () => {
   left: 0;
   right: 0;
   padding: 1rem;
+}
+.task-col {
+  flex: 0 0 calc(50% - 4px); /* 2 kortelės per eilutę su tarpu */
 }
 </style>
