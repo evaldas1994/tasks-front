@@ -33,7 +33,8 @@ const login = async () => {
     userStore.setUser(res.data.user)
     userStore.setToken(res.data.token)
     error.value = ''
-    router.push('/dashboard')
+    router.replace('/dashboard');
+    // router.push('/dashboard')
   } catch (e) {
     error.value = 'Prisijungimas nepavyko'
   }

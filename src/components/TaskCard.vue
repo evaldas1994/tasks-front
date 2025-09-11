@@ -53,7 +53,9 @@ defineEmits(['select'])
 <style scoped>
 
 .selected-task {
-  outline: 2px solid gray;
+  outline: 2px solid #b98bda;
   outline-offset: -2px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  //background: none;
 }
 </style>

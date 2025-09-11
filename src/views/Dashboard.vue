@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex flex-column vh-100">
+  <div class="d-flex flex-column vh-100 ">
     <!-- header -->
     <header class="row-header text-center text-white"></header>
 
     <!-- big box -->
-    <div class="glass-card mb-3 flex-shrink-0 overflow-y-scroll" style="height: 200px">
+    <div class="glass-card mb-3 flex-shrink-0 overflow-y-scroll mx-2" style="height: 200px">
         <ul class="list-group list-group-flush glass-engraved" style="background: none;">
           <li
             v-for="taskTemplate in taskTemplates"
@@ -22,7 +22,7 @@
     </div>
 
     <!-- blocks container -->
-    <div class="blocks-container flex-grow-1 overflow-auto px-2" style="overflow-x: hidden">
+    <div class="blocks-container flex-grow-1 overflow-auto" style="overflow-x: hidden">
       <!-- Loading -->
       <div v-if="loading" class="row g-3 m-0">
         <div class="col-12">
