@@ -37,18 +37,24 @@
 
       <!-- Tasks -->
       <div v-else-if="tasks.length > 0" class="row g-2 m-0">
-<!--        <div class="col-6 m-0 px-0 g-2" v-for="task in tasks" :key="task.id">-->
-<!--          <TaskCard-->
-<!--            :task="task"-->
-<!--            :selected="selectedTaskId === task.id"-->
-<!--            @select="toggleSelect"-->
-<!--          />-->
-<!--        </div>-->
+        <div class="glass-engraved font-size-rem-0-7">Šiandien</div>
         <div class="d-flex flex-wrap gap-2 m-0 p-0">
-          <div class="task-col" v-for="task in tasks" :key="task.id">
+          <div class="task-col" v-for="task in todayTasks" :key="task.id">
             <TaskCard
               :task="task"
               :selected="selectedTaskId === task.id"
+              @select="toggleSelect"
+            />
+          </div>
+        </div>
+
+        <div class="glass-engraved font-size-rem-0-7">Rytoj</div>
+        <div class="d-flex flex-wrap gap-2 m-0 p-0">
+          <div class="task-col" v-for="task in tomorrowTasks" :key="task.id">
+            <TaskCard
+              :task="task"
+              :selected="selectedTaskId === task.id"
+              :disabled="true"
               @select="toggleSelect"
             />
           </div>
@@ -79,7 +85,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onActivated, onBeforeUnmount, onUnmounted } from 'vue'
+import { ref, onMounted, onActivated, onBeforeUnmount, onUnmounted, computed } from 'vue'
 import axios from '@/plugins/axios'
 import TaskCard from '@/components/TaskCard.vue'
 import gsap from "gsap"
@@ -91,6 +97,9 @@ const error = ref(null)
 
 const selectedTaskId = ref(null)
 const selectedTaskName = ref(null)
+
+const todayTasks = computed(() => tasks.value.filter(t => t.today))
+const tomorrowTasks = computed(() => tasks.value.filter(t => t.tomorrow))
 
 const toggleSelect = (taskId) => {
   if (selectedTaskId.value === taskId) {

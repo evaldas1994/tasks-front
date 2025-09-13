@@ -1,8 +1,12 @@
 <template>
   <div
-    class="block h-100 d-flex flex-column justify-content-start align-items-between"
-    @click="$emit('select', task.id)"
-    :class="{ 'border-primary shadow selected-task': selected }"
+    @click="toggleSelect"
+    :class="[
+      'block h-100 d-flex flex-column justify-content-start align-items-between',
+      {
+        'selected-task': selected,
+        'disabled-task': disabled
+      }]"
   >
     <!-- viršus: laikas + ikona -->
     <div>
@@ -42,12 +46,20 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   task: { type: Object, required: true },
-  selected: { type: Boolean, default: false }
+  selected: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
 })
 
-defineEmits(['select'])
+const emit = defineEmits(['select'])
+
+function toggleSelect() {
+  if (props.disabled)
+    return;
+
+  emit('select', props.task.id)
+}
 </script>
 
 <style scoped>
@@ -55,7 +67,12 @@ defineEmits(['select'])
 .selected-task {
   outline: 2px solid #b98bda;
   outline-offset: -2px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-  //background: none;
+}
+
+.disabled-task {
+  outline: 2px solid #7e7e7e;
+  outline-offset: -2px;
+  background: none;
+  opacity: 0.6;
 }
 </style>
