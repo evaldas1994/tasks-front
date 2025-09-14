@@ -13,7 +13,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate', // automatinis SW atnaujinimas
       includeAssets: ['favicon.svg', 'robots.txt', 'pwa-192x192.png', 'pwa-512x512.png'],
-      manifest: '/manifest-if.json'
+      manifest: 'public/manifest-if.json'
     }),
   ],
   resolve: {
