@@ -28,7 +28,7 @@ const login = async () => {
     const res = await axios.post('/api/auth/login', {
       email: email.value,
       password: password.value
-    })
+    }, { withCredentials: true })
     // Set user and token in Pinia
     userStore.setUser(res.data.user)
     userStore.setToken(res.data.token)
