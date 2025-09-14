@@ -1,0 +1,22 @@
+{
+  "name": "Ulala",
+  "short_name": "Ulala",
+  "description": "Programa skirta vartotojui saugoti ir organizuoti įvairaus tipo turinį – nuorodas (URL), paveikslėlius ir failus (attachmentus). Visa medžiaga gali būti grupuojama pagal temas, projektus ar kategorijas, kad lengvai būtų galima ją rasti ir peržiūrėti.",
+  "theme_color": "#FFC787",
+  "background_color": "#FFC787",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/?source=pwa",
+  "icons": [
+    {
+      "src": "ulala/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "ulala/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
