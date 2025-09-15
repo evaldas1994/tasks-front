@@ -5,9 +5,6 @@ import vue from '@vitejs/plugin-vue'
 // import vueDevTools from 'vite-plugin-vue-devtools'
 import { VitePWA } from 'vite-plugin-pwa'
 
-import manifestIf from './public/manifest-if.json'
-import manifestUlala from './public/manifest-ulala.json'
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -15,8 +12,29 @@ export default defineConfig({
     // vueDevTools(),
     VitePWA({
       registerType: 'autoUpdate', // automatinis SW atnaujinimas
-      includeAssets: ['favicon.svg', 'robots.txt', 'if/pwa-192x192.png', 'if/pwa-512x512.png'],
-      manifest: manifestIf
+      includeAssets: ['favicon.svg', 'robots.txt', 'pwa-192x192.png', 'pwa-512x512.png'],
+      manifest: {
+        name: 'Mano CRM',
+        short_name: 'CRM',
+        description: 'Mini CRM su Laravel + Vue PWA',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        orientation: 'portrait',
+        start_url: '/',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      }
     }),
   ],
   resolve: {
