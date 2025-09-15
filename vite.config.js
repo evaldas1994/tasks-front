@@ -14,12 +14,12 @@ export default defineConfig({
       registerType: 'autoUpdate', // automatinis SW atnaujinimas
       includeAssets: ['favicon.svg', 'robots.txt', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'Mano CRM',
-        short_name: 'CRM',
-        description: 'Mini CRM su Laravel + Vue PWA',
+        name: 'Ulala',
+        short_name: 'Ulala',
+        description: 'Ulala kolekcija',
         theme_color: '#ffffff',
         background_color: '#ffffff',
-        display: 'standalone',
+        display: 'fullscreen',
         orientation: 'portrait',
         start_url: '/',
         icons: [
