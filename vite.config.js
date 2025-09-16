@@ -35,9 +35,9 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, './src')
       }
     },
-    build: {
-      outDir: 'public_html'
-    }
+    // build: {
+    //   outDir: 'public_html'
+    // }
     // resolve: {
     //   alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
     // },
