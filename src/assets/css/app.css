@@ -6,10 +6,10 @@ html, body, #app {
   padding: 0;
   overflow: hidden;
 
-  background: radial-gradient(circle,
-  #6A0DAD 24%,
-  #1A0033 100%
-  );
+  /*background: radial-gradient(circle,*/
+  /*#6A0DAD 24%,*/
+  /*#1A0033 100%*/
+  /*);*/
 
   /*background: radial-gradient(circle,*/
   /*#FFA94D 0%,*/
