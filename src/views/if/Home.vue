@@ -86,7 +86,7 @@
 
 <script setup>
 import { ref, onMounted, onActivated, onBeforeUnmount, onUnmounted, computed } from 'vue'
-import axios from '@/plugins/axios'
+import axios from '@/plugins/axios.js'
 import TaskCard from '@/components/TaskCard.vue'
 import gsap from "gsap"
 
@@ -191,40 +191,11 @@ const completeTask = async () => {
 }
 </script>
 
-<style scoped>
-.row-header {
-  padding: 0.75rem;
-  background: rgba(0, 0, 0, 0.3);
-  font-family: 'Kode Mono', monospace;
-  flex-shrink: 0;
-  height: 35px;
-}
-
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.slide-up-enter-from,
-.slide-up-leave-to {
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.slide-up-enter-to,
-.slide-up-leave-from {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.footer-buttons {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-}
-.task-col {
-  flex: 0 0 calc(50% - 4px); /* 2 kortelės per eilutę su tarpu */
+<style>
+body {
+  background: radial-gradient(circle,
+  #6A0DAD 24%,
+  #1A0033 100%
+  );
 }
 </style>
