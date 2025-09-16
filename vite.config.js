@@ -18,10 +18,10 @@ export default defineConfig(({ mode }) => {
           name: env.VITE_NAME,
           short_name: env.VITE_SHORT_NAME,
           description: env.VITE_APP_DESCRIPTION,
-          theme_color: '#6A0DAD',
-          background_color: '#6A0DAD',
+          theme_color: env.VITE_THEME_COLOR,
+          background_color: env.VITE_BACKGROUND_COLOR,
           display: env.VITE_DISPLAY,
-          orientation: 'portrait',
+          orientation: env.VITE_ORIENTATION,
           start_url: env.VITE_START_URL,
           icons: [
             { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
