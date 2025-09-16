@@ -29,6 +29,7 @@ const login = async () => {
       email: email.value,
       password: password.value
     })
+    console.log(res.data.user);
     // Set user and token in Pinia
     userStore.setUser(res.data.user)
     userStore.setToken(res.data.token)
