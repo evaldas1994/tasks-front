@@ -8,7 +8,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_')
 
   return {
-    root: mode === 'production' ? './dist' : undefined, // <- čia
     plugins: [
       vue(),
       VitePWA({
