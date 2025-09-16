@@ -32,9 +32,9 @@ export default defineConfig(({ mode }) => {
         }
       }),
     ],
-    resolve: {
-      alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
-    },
-    server: { host: '0.0.0.0', port: 5175 },
+    // resolve: {
+    //   alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
+    // },
+    // server: { host: '0.0.0.0', port: 5175 },
   }
 })
