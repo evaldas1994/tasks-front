@@ -29,8 +29,6 @@ const login = async () => {
       email: email.value,
       password: password.value
     })
-    console.log(res.data.user);
-    // Set user and token in Pinia
     userStore.setUser(res.data.user)
     userStore.setToken(res.data.token)
     error.value = ''
@@ -42,12 +40,58 @@ const login = async () => {
 </script>
 
 <style scoped>
+.login-container {
+  max-width: 360px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: sans-serif;
+}
 
-input, button {
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
   padding: 10px;
   font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
 }
+
+input:focus {
+  border-color: #4f46e5;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4f46e5;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #3730a3;
+}
+
 .error {
   color: red;
+  margin-top: 10px;
 }
 </style>
