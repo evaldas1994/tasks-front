@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
+import path from 'path'
 
 export default defineConfig(({ mode }) => {
   // įkrauna env failus pagal aplinką
@@ -32,6 +33,11 @@ export default defineConfig(({ mode }) => {
         }
       }),
     ],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src')
+      }
+    }
     // resolve: {
     //   alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
     // },
