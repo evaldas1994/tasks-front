@@ -34,7 +34,7 @@ const login = async () => {
     userStore.setUser(res.data.user)
     userStore.setToken(res.data.token)
     error.value = ''
-    router.replace('/if');
+    router.replace('/' + res.data.user.pwa_project_code);
   } catch (e) {
     error.value = 'Prisijungimas nepavyko'
   }
