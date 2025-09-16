@@ -191,11 +191,6 @@ const completeTask = async () => {
 }
 </script>
 
-<style>
-body {
-  background: radial-gradient(circle,
-  #6A0DAD 24%,
-  #1A0033 100%
-  );
-}
+<style scoped>
+
 </style>
