@@ -1,12 +1,14 @@
 <template>
-  <div class="login-container">
-    <h1>Prisijungimas</h1>
-    <form @submit.prevent="login">
-      <input v-model="email" type="email" placeholder="El. paštas" required />
-      <input v-model="password" type="password" placeholder="Slaptažodis" required />
-      <button type="submit">Prisijungti</button>
-    </form>
-    <p v-if="error" class="error">{{ error }}</p>
+  <div class="h-100 d-flex justify-content-center align-items-center">
+    <div class="login-container">
+      <h1>Sveiki sugrįžę !</h1>
+      <form @submit.prevent="login">
+        <input v-model="email" type="email" placeholder="El. paštas" required />
+        <input v-model="password" type="password" placeholder="Slaptažodis" required />
+        <button type="submit">Prisijungti</button>
+      </form>
+      <p v-if="error" class="error">{{ error }}</p>
+    </div>
   </div>
 </template>
 
@@ -41,7 +43,7 @@ const login = async () => {
 
 <style scoped>
 .login-container {
-  max-width: 360px;
+  width: 360px;
   margin: 50px auto;
   padding: 20px;
   background: #fff;
