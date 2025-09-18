@@ -12,7 +12,7 @@ import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 // Importuojam visus galimus CSS failus globaliai
-// import './assets/css/app.css'
+import './assets/css/app.css'
 import '@/assets/css/if/app.css'
 import '@/assets/css/ulala/app.css'
 
