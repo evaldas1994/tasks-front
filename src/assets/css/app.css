@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono&display=swap');
 
-html, body, #app {
+.default html, .default body, .default #app {
   height: 100dvh;
   margin: 0;
   padding: 0;
   overflow: hidden;
+
+  background: radial-gradient(circle, #dcfdd4 24%, #31c62c 100%);
 
   /*background: radial-gradient(circle,*/
   /*#6A0DAD 24%,*/
@@ -16,25 +18,25 @@ html, body, #app {
   /*#1A0033 100%*/
   /*);*/
 }
-body {
+.default body {
   background-size: cover;
 }
 
-.font-size-rem-0-4 { font-size: 0.4rem; }
-.font-size-rem-0-5 { font-size: 0.5rem; }
-.font-size-rem-0-6 { font-size: 0.6rem; }
-.font-size-rem-0-7 { font-size: 0.7rem; }
-.font-size-rem-0-8 { font-size: 0.8rem; }
-.font-size-rem-0-9 { font-size: 0.9rem; }
-.font-size-rem-1-0 { font-size: 1.0rem; }
-.font-size-rem-1-1 { font-size: 1.1rem; }
-.font-size-rem-1-2 { font-size: 1.2rem; }
-.font-size-rem-1-3 { font-size: 1.3rem; }
-.font-size-rem-1-4 { font-size: 1.4rem; }
-.font-size-rem-1-5 { font-size: 1.5rem; }
+.default .font-size-rem-0-4 { font-size: 0.4rem; }
+.default .font-size-rem-0-5 { font-size: 0.5rem; }
+.default .font-size-rem-0-6 { font-size: 0.6rem; }
+.default .font-size-rem-0-7 { font-size: 0.7rem; }
+.default .font-size-rem-0-8 { font-size: 0.8rem; }
+.default .font-size-rem-0-9 { font-size: 0.9rem; }
+.default .font-size-rem-1-0 { font-size: 1.0rem; }
+.default .font-size-rem-1-1 { font-size: 1.1rem; }
+.default .font-size-rem-1-2 { font-size: 1.2rem; }
+.default .font-size-rem-1-3 { font-size: 1.3rem; }
+.default .font-size-rem-1-4 { font-size: 1.4rem; }
+.default .font-size-rem-1-5 { font-size: 1.5rem; }
 
 
-.glass-card {
+.default .glass-card {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -45,7 +47,7 @@ body {
   color: #fff;
 }
 
-.block {
+.default .block {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -57,7 +59,7 @@ body {
   height: 150px;
 }
 
-.glass-engraved {
+.default .glass-engraved {
   font-family: 'Kode Mono', monospace;
   color: rgba(255, 255, 255, 0.6);
   text-shadow:
@@ -66,23 +68,23 @@ body {
 }
 
 /* Jei naudoji ikonėles (pvz. Bootstrap Icons ar FontAwesome) */
-.glass-engraved i,
-.glass-engraved svg,
-.glass-engraved span{
+.default .glass-engraved i,
+.default .glass-engraved svg,
+.default .glass-engraved span{
   color: rgba(255, 255, 255, 0.6);
   filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5))
   drop-shadow(-1px -1px 2px rgba(255,255,255,0.3));
 }
 
 
-.footer-buttons {
+.default .footer-buttons {
   position: sticky;
   bottom: 0;
   padding: 0.5rem 0;
   backdrop-filter: blur(8px);
 }
 
-.btn {
+.default .btn {
   padding: 0.5rem 1.25rem;
   border-radius: 0.5rem;
   background: rgba(255,255,255,0.3);
@@ -92,12 +94,12 @@ body {
   transition: background 0.2s;
 }
 
-.btn:hover {
+.default .btn:hover {
   background: rgba(255,255,255,0.5);
 }
 
 
-.row-header {
+.default .row-header {
   padding: 0.75rem;
   background: rgba(0, 0, 0, 0.3);
   font-family: 'Kode Mono', monospace;
@@ -105,30 +107,35 @@ body {
   height: 35px;
 }
 
-.slide-up-enter-active,
-.slide-up-leave-active {
+.default .slide-up-enter-active,
+.default .slide-up-leave-active {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.slide-up-enter-from,
-.slide-up-leave-to {
+.default .slide-up-enter-from,
+.default .slide-up-leave-to {
   transform: translateY(100%);
   opacity: 0;
 }
 
-.slide-up-enter-to,
-.slide-up-leave-from {
+.default .slide-up-enter-to,
+.default .slide-up-leave-from {
   transform: translateY(0);
   opacity: 1;
 }
 
-.footer-buttons {
+.default .footer-buttons {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 1rem;
 }
-.task-col {
+.default .task-col {
   flex: 0 0 calc(50% - 4px); /* 2 kortelės per eilutę su tarpu */
+}
+
+/* Apatinė navigacija */
+.default nav {
+  display: none;
 }

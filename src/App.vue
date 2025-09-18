@@ -2,7 +2,7 @@
   <div :class="themeClass">
     <router-view />
 
-    <nav class="bottom-nav">
+    <nav v-if="themeClass && route.path !== '/login'" class="bottom-nav">
       <button><i class="bi bi-plus-square"></i></button>
       <button @click="goBack"><i class="bi bi-arrow-left-square"></i></button>
     </nav>
@@ -12,15 +12,22 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useUserStore } from '@/stores/userStore'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 const userStore = useUserStore()
-const themeClass = ref('')
+const themeClass = ref('default')
 
 // Stebim vartotoją
 watch(() => userStore.user, (user) => {
-  if (!user) return
+  if (!user) {
+    document.body.className = '' // reset
+
+    return
+  }
+
+  document.body.className = user.pwa_project_code
   themeClass.value = user.pwa_project_code  // pvz. 'if' arba 'ulala'
 }, { immediate: true })
 
