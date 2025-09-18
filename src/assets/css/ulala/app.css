@@ -21,8 +21,8 @@ html, body {
 .bottom-nav {
   display: flex;
   justify-content: space-around;
-  background: #111;
-  color: white;
+  background: #000fa8;
+  color: #2f9f31;
   padding: 12px 0;
 
   /* Užtikrina, kad neuždengtų iOS "home indicator" */
@@ -36,7 +36,7 @@ html, body {
 .bottom-nav button {
   background: none;
   border: none;
-  color: white;
+  color: #ff0000;
   font-size: 16px;
   padding: 8px 16px;
 }
