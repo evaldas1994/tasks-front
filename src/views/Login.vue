@@ -33,17 +33,18 @@ const login = async () => {
       password: password.value
     })
 
-    if (res.data.user.pwa_project_code === 'if') {
-      import('@/assets/css/if/app.css')
-    } else if (res.data.user.pwa_project_code === 'ulala') {
-      import('@/assets/css/ulala/app.css')
-    }
+    // if (res.data.user.pwa_project_code === 'if') {
+    //   import('@/assets/css/if/app.css')
+    // } else if (res.data.user.pwa_project_code === 'ulala') {
+    //   import('@/assets/css/ulala/app.css')
+    // }
 
     userStore.setUser(res.data.user)
     userStore.setToken(res.data.token)
 
     error.value = ''
-    router.replace('/' + res.data.user.pwa_project_code);
+    router.replace('/')
+    // router.replace('/' + res.data.user.pwa_project_code);
   } catch (e) {
     error.value = 'Prisijungimas nepavyko'
   }

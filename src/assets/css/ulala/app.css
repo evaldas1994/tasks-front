@@ -1,17 +1,17 @@
-html, body, #app {
+.ulala html, body, #app {
   margin: 0;
   padding: 0;
   height: 100%;
   background: radial-gradient(circle, #fdedd4 24%, #ffd3a6 100%);
 }
 
-.app {
+.ulala .app {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.content {
+.ulala .content {
   flex: 1;
   overflow-y: auto;
 
@@ -22,7 +22,7 @@ html, body, #app {
 }
 
 /* Apatinė navigacija */
-.bottom-nav {
+.ulala .bottom-nav {
   position: sticky;
   bottom: 0;
   display: flex;
@@ -33,7 +33,7 @@ html, body, #app {
   padding-bottom: calc(env(safe-area-inset-bottom) + 12px);
 }
 
-.bottom-nav button {
+.ulala .bottom-nav button {
   background: none;
   border: none;
   color: #ff0000;
