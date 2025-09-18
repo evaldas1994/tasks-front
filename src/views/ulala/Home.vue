@@ -1,5 +1,5 @@
 <template>
-  <div class="bg">
+  <div class="d-flex flex-column vh-100 mx-2 gap-2">
     Jūratėlei
   </div>
 </template>
