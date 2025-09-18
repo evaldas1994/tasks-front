@@ -18,122 +18,22 @@
   /*#1A0033 100%*/
   /*);*/
 }
-.default body {
+body {
   background-size: cover;
 }
 
-.default .font-size-rem-0-4 { font-size: 0.4rem; }
-.default .font-size-rem-0-5 { font-size: 0.5rem; }
-.default .font-size-rem-0-6 { font-size: 0.6rem; }
-.default .font-size-rem-0-7 { font-size: 0.7rem; }
-.default .font-size-rem-0-8 { font-size: 0.8rem; }
-.default .font-size-rem-0-9 { font-size: 0.9rem; }
-.default .font-size-rem-1-0 { font-size: 1.0rem; }
-.default .font-size-rem-1-1 { font-size: 1.1rem; }
-.default .font-size-rem-1-2 { font-size: 1.2rem; }
-.default .font-size-rem-1-3 { font-size: 1.3rem; }
-.default .font-size-rem-1-4 { font-size: 1.4rem; }
-.default .font-size-rem-1-5 { font-size: 1.5rem; }
-
-
-.default .glass-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  color: #fff;
-}
-
-.default .block {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0.75rem;
-  padding: 1rem;
-  font-family: 'Kode Mono', monospace;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  height: 150px;
-}
-
-.default .glass-engraved {
-  font-family: 'Kode Mono', monospace;
-  color: rgba(255, 255, 255, 0.6);
-  text-shadow:
-    1px 1px 2px rgba(0,0,0,0.5),   /* šešėlis apačioje (įspaustas efektas) */
-    -1px -1px 2px rgba(255,255,255,0.3); /* viršuje šviesos efektas */
-}
-
-/* Jei naudoji ikonėles (pvz. Bootstrap Icons ar FontAwesome) */
-.default .glass-engraved i,
-.default .glass-engraved svg,
-.default .glass-engraved span{
-  color: rgba(255, 255, 255, 0.6);
-  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5))
-  drop-shadow(-1px -1px 2px rgba(255,255,255,0.3));
-}
-
-
-.default .footer-buttons {
-  position: sticky;
-  bottom: 0;
-  padding: 0.5rem 0;
-  backdrop-filter: blur(8px);
-}
-
-.default .btn {
-  padding: 0.5rem 1.25rem;
-  border-radius: 0.5rem;
-  background: rgba(255,255,255,0.3);
-  color: #fff;
-  font-family: 'Kode Mono', monospace;
-  border: none;
-  transition: background 0.2s;
-}
-
-.default .btn:hover {
-  background: rgba(255,255,255,0.5);
-}
-
-
-.default .row-header {
-  padding: 0.75rem;
-  background: rgba(0, 0, 0, 0.3);
-  font-family: 'Kode Mono', monospace;
-  flex-shrink: 0;
-  height: 35px;
-}
-
-.default .slide-up-enter-active,
-.default .slide-up-leave-active {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.default .slide-up-enter-from,
-.default .slide-up-leave-to {
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.default .slide-up-enter-to,
-.default .slide-up-leave-from {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.default .footer-buttons {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-}
-.default .task-col {
-  flex: 0 0 calc(50% - 4px); /* 2 kortelės per eilutę su tarpu */
-}
+.font-size-rem-0-4 { font-size: 0.4rem; }
+.font-size-rem-0-5 { font-size: 0.5rem; }
+.font-size-rem-0-6 { font-size: 0.6rem; }
+.font-size-rem-0-7 { font-size: 0.7rem; }
+.font-size-rem-0-8 { font-size: 0.8rem; }
+.font-size-rem-0-9 { font-size: 0.9rem; }
+.font-size-rem-1-0 { font-size: 1.0rem; }
+.font-size-rem-1-1 { font-size: 1.1rem; }
+.font-size-rem-1-2 { font-size: 1.2rem; }
+.font-size-rem-1-3 { font-size: 1.3rem; }
+.font-size-rem-1-4 { font-size: 1.4rem; }
+.font-size-rem-1-5 { font-size: 1.5rem; }
 
 /* Apatinė navigacija */
 .default nav {

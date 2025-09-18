@@ -40,3 +40,104 @@
   font-size: 16px;
   padding: 8px 16px;
 }
+
+
+.if .glass-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.if .block {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-family: 'Kode Mono', monospace;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 150px;
+}
+
+.if .glass-engraved {
+  font-family: 'Kode Mono', monospace;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow:
+    1px 1px 2px rgba(0,0,0,0.5),   /* šešėlis apačioje (įspaustas efektas) */
+    -1px -1px 2px rgba(255,255,255,0.3); /* viršuje šviesos efektas */
+}
+
+/* Jei naudoji ikonėles (pvz. Bootstrap Icons ar FontAwesome) */
+.if .glass-engraved i,
+.if .glass-engraved svg,
+.if .glass-engraved span{
+  color: rgba(255, 255, 255, 0.6);
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5))
+  drop-shadow(-1px -1px 2px rgba(255,255,255,0.3));
+}
+
+
+.if .footer-buttons {
+  position: sticky;
+  bottom: 0;
+  padding: 0.5rem 0;
+  backdrop-filter: blur(8px);
+}
+
+.if .btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.3);
+  color: #fff;
+  font-family: 'Kode Mono', monospace;
+  border: none;
+  transition: background 0.2s;
+}
+
+.if .btn:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+
+.if .row-header {
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  font-family: 'Kode Mono', monospace;
+  flex-shrink: 0;
+  height: 35px;
+}
+
+.if .slide-up-enter-active,
+.if .slide-up-leave-active {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.if .slide-up-enter-from,
+.if .slide-up-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.if .slide-up-enter-to,
+.if .slide-up-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.if .footer-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+}
+.if .task-col {
+  flex: 0 0 calc(50% - 4px); /* 2 kortelės per eilutę su tarpu */
+}
+
