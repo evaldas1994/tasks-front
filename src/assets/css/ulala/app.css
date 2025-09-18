@@ -1,3 +1,42 @@
-body{
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   background: radial-gradient(circle, #fdedd4 24%, #ffd3a6 100%);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+/* Apatinė navigacija */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background: #111;
+  color: white;
+  padding: 12px 0;
+
+  /* Užtikrina, kad neuždengtų iOS "home indicator" */
+  padding-bottom: calc(env(safe-area-inset-bottom) + 12px);
+
+  /* fiksuota apačioje */
+  position: sticky;
+  bottom: 0;
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px;
 }
