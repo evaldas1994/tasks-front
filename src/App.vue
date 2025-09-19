@@ -27,18 +27,26 @@ const userStore = useUserStore()
 const themeClass = ref('default')
 
 // Dinaminis vh aukštis
-const setAppHeight = () => {
-  const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight
-  document.documentElement.style.setProperty('--app-height', `${vh}px`)
+// const setAppHeight = () => {
+//   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight
+//   document.documentElement.style.setProperty('--app-height', `${vh}px`)
+// }
+
+const setAppHeightAndPadding = () => {
+  const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  const offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
+
+  document.documentElement.style.setProperty('--app-height', `${vh}px`);
+  document.documentElement.style.setProperty('--app-offset-top', `${offsetTop}px`);
 }
 
 onMounted(() => {
-  setAppHeight()
-  window.addEventListener('resize', setAppHeight)
+  setAppHeightAndPadding()
+  window.addEventListener('resize', setAppHeightAndPadding)
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', setAppHeight)
+  window.removeEventListener('resize', setAppHeightAndPadding)
 })
 
 // Stebim vartotoją

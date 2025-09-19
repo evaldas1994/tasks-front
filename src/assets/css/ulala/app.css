@@ -1,7 +1,8 @@
 .ulala html, .ulala body, .ulala #app {
   margin: 0;
   padding: 0;
-  height: var(--app-height); /* naudojame JS dinamiką */
+  height: var(--app-height);
+  padding-top: var(--app-offset-top);
   overflow: hidden;
   background: radial-gradient(circle, #fdedd4 24%, #ffd3a6 100%);
 }
