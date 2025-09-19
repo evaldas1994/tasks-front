@@ -28,7 +28,8 @@ const themeClass = ref('default')
 
 // Dinaminis vh aukštis
 const setAppHeight = () => {
-  document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`)
+  const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight
+  document.documentElement.style.setProperty('--app-height', `${vh}px`)
 }
 
 onMounted(() => {
