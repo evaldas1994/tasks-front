@@ -18,6 +18,7 @@
   -webkit-overflow-scrolling: touch; /* smooth scroll iOS */
   padding-top: env(safe-area-inset-top);
   padding-bottom: calc(env(safe-area-inset-bottom) + 60px); /* vieta nav */
+  height: calc(100% - 67px);
 }
 
 /* Apatinė navigacija - fixed vietoje sticky */
