@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useUserStore } from '@/stores/userStore'
 import { useRouter, useRoute } from 'vue-router'
 
@@ -25,6 +25,20 @@ const router = useRouter()
 const route = useRoute()
 const userStore = useUserStore()
 const themeClass = ref('default')
+
+// Dinaminis vh aukštis
+const setAppHeight = () => {
+  document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`)
+}
+
+onMounted(() => {
+  setAppHeight()
+  window.addEventListener('resize', setAppHeight)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', setAppHeight)
+})
 
 // Stebim vartotoją
 watch(() => userStore.user, (user) => {

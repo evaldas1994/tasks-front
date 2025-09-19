@@ -1,26 +1,25 @@
 .ulala html, .ulala body, .ulala #app {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  overflow: hidden; /* pagrindiniam konteineriui */
+  height: var(--app-height); /* naudojame JS dinamiką */
+  overflow: hidden;
   background: radial-gradient(circle, #fdedd4 24%, #ffd3a6 100%);
 }
 
 .ulala .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 
 .ulala .content {
   flex: 1;
-  overflow-y: hidden; /* scroll tik content */
-  -webkit-overflow-scrolling: touch; /* smooth scroll iOS */
+  overflow-y: auto; /* leidžiame scroll content, jei reikia */
+  -webkit-overflow-scrolling: touch;
   padding-top: env(safe-area-inset-top);
-  padding-bottom: calc(env(safe-area-inset-bottom) + 60px); /* vieta nav */
+  padding-bottom: calc(env(safe-area-inset-bottom) + 60px);
 }
 
-/* Apatinė navigacija - fixed vietoje sticky */
 .ulala .bottom-nav {
   position: fixed;
   left: 0;
@@ -32,7 +31,7 @@
   color: white;
   padding: 6px 0;
   padding-bottom: calc(env(safe-area-inset-bottom) + 12px);
-  z-index: 1000; /* virš kitų elementų */
+  z-index: 1000;
 }
 
 .ulala .bottom-nav button {
