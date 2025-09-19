@@ -6,7 +6,7 @@
       v-if="
         themeClass
         && route.path !== '/login'
-        && ['ulala', 'if'].includes(themeClass)
+        && ['ulala'].includes(themeClass)
       "
       class="bottom-nav">
       <button><i class="bi bi-plus-square"></i></button>
