@@ -14,7 +14,7 @@
 
 .ulala .content {
   flex: 1;
-  overflow-y: auto; /* scroll tik content */
+  overflow-y: hidden; /* scroll tik content */
   -webkit-overflow-scrolling: touch; /* smooth scroll iOS */
   padding-top: env(safe-area-inset-top);
   padding-bottom: calc(env(safe-area-inset-bottom) + 60px); /* vieta nav */
