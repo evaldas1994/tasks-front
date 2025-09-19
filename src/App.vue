@@ -1,5 +1,5 @@
 <template>
-  <div :class="themeClass">
+  <div :class="[themeClass, { blurred: isBlurred }]">
     <router-view />
 
     <nav
@@ -25,6 +25,7 @@ const router = useRouter()
 const route = useRoute()
 const userStore = useUserStore()
 const themeClass = ref('default')
+const isBlurred = ref(false)
 
 // Dinaminis vh aukštis
 // const setAppHeight = () => {
@@ -40,12 +41,30 @@ const setAppHeightAndPadding = () => {
   document.documentElement.style.setProperty('--app-offset-top', `${offsetTop}px`);
 }
 
+const handleViewportChange = () => {
+  const vh = window.visualViewport.height
+  const offsetTop = window.visualViewport.offsetTop
+
+  // Jei offsetTop > 0 arba height sumažėja, reiškia soft buttons pasirodė
+  isBlurred.value = offsetTop > 0 || vh < window.innerHeight
+}
+
 onMounted(() => {
+  if (window.visualViewport) {
+    handleViewportChange()
+    window.visualViewport.addEventListener('resize', handleViewportChange)
+    window.visualViewport.addEventListener('scroll', handleViewportChange)
+  }
+
   setAppHeightAndPadding()
   window.addEventListener('resize', setAppHeightAndPadding)
 })
 
 onBeforeUnmount(() => {
+  if (window.visualViewport) {
+    window.visualViewport.removeEventListener('resize', handleViewportChange)
+    window.visualViewport.removeEventListener('scroll', handleViewportChange)
+  }
   window.removeEventListener('resize', setAppHeightAndPadding)
 })
 
@@ -84,3 +103,10 @@ const logout = () => {
   router.push('/login')
 }
 </script>
+
+<style>
+.blurred {
+  filter: blur(6px);
+  transition: filter 0.2s ease;
+}
+</style>
