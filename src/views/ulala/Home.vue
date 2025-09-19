@@ -4,7 +4,9 @@
       v-for="(folder, key) in [1,2,3,4,5,6,7,8,9,10]"
       :key="key"
       class="col-4 g-0">
-      <folder-card/>
+      <folder-card
+        :keyy="key"
+      />
     </div>
   </div>
 </template>

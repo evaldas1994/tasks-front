@@ -2,7 +2,7 @@
   <div class="p-1">
     <div class="rounded">
       <img
-        src="https://picsum.photos/300/300"
+        :src="`https://picsum.photos/300/300?random=${keyy}`"
         alt=""
         class="w-100 rounded-top border border-bottom-0"
         style="height: 80px; object-fit: cover;"
@@ -21,6 +21,12 @@
 
 <script setup>
 
+defineProps({
+  keyy: {
+    type: [String, Number],
+    required: true
+  }
+})
 </script>
 
 <style scoped>
