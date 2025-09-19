@@ -4,7 +4,7 @@
       <img
         src="https://picsum.photos/300/300"
         alt=""
-        class="w-100 rounded-top"
+        class="w-100 rounded-top border border-bottom-0"
         style="height: 80px; object-fit: cover;"
       >
       <div class="p-1 border rounded-bottom bg-white bg-opacity-50">
