@@ -1,7 +1,8 @@
 .ulala html, .ulala body, .ulala #app {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
+  overflow: hidden;
   background: radial-gradient(circle, #fdedd4 24%, #ffd3a6 100%);
 }
 
