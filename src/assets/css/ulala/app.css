@@ -1,7 +1,7 @@
 .ulala html, .ulala body, .ulala #app {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   overflow: hidden; /* pagrindiniam konteineriui */
   background: radial-gradient(circle, #fdedd4 24%, #ffd3a6 100%);
 }
@@ -9,7 +9,7 @@
 .ulala .app {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
 
 .ulala .content {
@@ -18,7 +18,6 @@
   -webkit-overflow-scrolling: touch; /* smooth scroll iOS */
   padding-top: env(safe-area-inset-top);
   padding-bottom: calc(env(safe-area-inset-bottom) + 60px); /* vieta nav */
-  height: calc(100% - 67px);
 }
 
 /* Apatinė navigacija - fixed vietoje sticky */
