@@ -6,7 +6,7 @@
       v-if="
         themeClass
         && route.path !== '/login'
-        && ['ulala'].includes(themeClass)
+        && ['ulala', 'if'].includes(themeClass)
       "
       class="bottom-nav">
       <button><i class="bi bi-plus-square"></i></button>
@@ -52,10 +52,6 @@ const goBack = () => {
 const logout = () => {
   // Išvalome vartotojo informaciją iš Pinia store
   userStore.$reset()
-
-  // (neprivaloma) išvalome localStorage / sessionStorage jei naudojama
-  localStorage.removeItem('user')
-  sessionStorage.removeItem('user')
 
   // Resetinam temą
   document.body.className = ''
