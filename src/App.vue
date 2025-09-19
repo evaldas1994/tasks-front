@@ -1,5 +1,5 @@
 <template>
-  <div :class="[themeClass, { blurred: isBlurred }]">
+  <div :class="themeClass">
     <router-view />
 
     <nav
@@ -25,49 +25,20 @@ const router = useRouter()
 const route = useRoute()
 const userStore = useUserStore()
 const themeClass = ref('default')
-const isBlurred = ref(false)
 
 // Dinaminis vh aukštis
-// const setAppHeight = () => {
-//   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight
-//   document.documentElement.style.setProperty('--app-height', `${vh}px`)
-// }
+const setAppHeight = () => {
+  document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`)
+}
 
-// const setAppHeightAndPadding = () => {
-//   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-//   const offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
-//
-//   document.documentElement.style.setProperty('--app-height', `${vh}px`);
-//   document.documentElement.style.setProperty('--app-offset-top', `${offsetTop}px`);
-// }
+onMounted(() => {
+  setAppHeight()
+  window.addEventListener('resize', setAppHeight)
+})
 
-// const handleViewportChange = () => {
-//   const vh = window.visualViewport.height
-//   const offsetTop = window.visualViewport.offsetTop
-//
-//   // Jei offsetTop > 0 arba height sumažėja, reiškia soft buttons pasirodė
-//   isBlurred.value = offsetTop > 0 || vh < window.innerHeight
-// }
-
-// onMounted(() => {
-//   if (window.visualViewport) {
-//     handleViewportChange()
-//     window.visualViewport.addEventListener('resize', handleViewportChange)
-//     window.visualViewport.addEventListener('scroll', handleViewportChange)
-//   }
-//
-//   setAppHeightAndPadding()
-//   window.addEventListener('resize', setAppHeightAndPadding)
-// })
-
-// onBeforeUnmount(() => {
-//   if (window.visualViewport) {
-//     window.visualViewport.removeEventListener('resize', handleViewportChange)
-//     window.visualViewport.removeEventListener('scroll', handleViewportChange)
-//   }
-//   window.removeEventListener('resize', setAppHeightAndPadding)
-// })
-
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', setAppHeight)
+})
 // Stebim vartotoją
 watch(() => userStore.user, (user) => {
   if (!user) {
@@ -103,10 +74,3 @@ const logout = () => {
   router.push('/login')
 }
 </script>
-
-<style>
-.blurred {
-  filter: blur(6px);
-  transition: filter 0.2s ease;
-}
-</style>
