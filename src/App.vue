@@ -33,40 +33,40 @@ const isBlurred = ref(false)
 //   document.documentElement.style.setProperty('--app-height', `${vh}px`)
 // }
 
-const setAppHeightAndPadding = () => {
-  const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-  const offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
+// const setAppHeightAndPadding = () => {
+//   const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+//   const offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
+//
+//   document.documentElement.style.setProperty('--app-height', `${vh}px`);
+//   document.documentElement.style.setProperty('--app-offset-top', `${offsetTop}px`);
+// }
 
-  document.documentElement.style.setProperty('--app-height', `${vh}px`);
-  document.documentElement.style.setProperty('--app-offset-top', `${offsetTop}px`);
-}
+// const handleViewportChange = () => {
+//   const vh = window.visualViewport.height
+//   const offsetTop = window.visualViewport.offsetTop
+//
+//   // Jei offsetTop > 0 arba height sumažėja, reiškia soft buttons pasirodė
+//   isBlurred.value = offsetTop > 0 || vh < window.innerHeight
+// }
 
-const handleViewportChange = () => {
-  const vh = window.visualViewport.height
-  const offsetTop = window.visualViewport.offsetTop
+// onMounted(() => {
+//   if (window.visualViewport) {
+//     handleViewportChange()
+//     window.visualViewport.addEventListener('resize', handleViewportChange)
+//     window.visualViewport.addEventListener('scroll', handleViewportChange)
+//   }
+//
+//   setAppHeightAndPadding()
+//   window.addEventListener('resize', setAppHeightAndPadding)
+// })
 
-  // Jei offsetTop > 0 arba height sumažėja, reiškia soft buttons pasirodė
-  isBlurred.value = offsetTop > 0 || vh < window.innerHeight
-}
-
-onMounted(() => {
-  if (window.visualViewport) {
-    handleViewportChange()
-    window.visualViewport.addEventListener('resize', handleViewportChange)
-    window.visualViewport.addEventListener('scroll', handleViewportChange)
-  }
-
-  setAppHeightAndPadding()
-  window.addEventListener('resize', setAppHeightAndPadding)
-})
-
-onBeforeUnmount(() => {
-  if (window.visualViewport) {
-    window.visualViewport.removeEventListener('resize', handleViewportChange)
-    window.visualViewport.removeEventListener('scroll', handleViewportChange)
-  }
-  window.removeEventListener('resize', setAppHeightAndPadding)
-})
+// onBeforeUnmount(() => {
+//   if (window.visualViewport) {
+//     window.visualViewport.removeEventListener('resize', handleViewportChange)
+//     window.visualViewport.removeEventListener('scroll', handleViewportChange)
+//   }
+//   window.removeEventListener('resize', setAppHeightAndPadding)
+// })
 
 // Stebim vartotoją
 watch(() => userStore.user, (user) => {
