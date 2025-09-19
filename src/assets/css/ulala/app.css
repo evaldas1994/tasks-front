@@ -43,6 +43,8 @@
   padding: 2px 16px;
 }
 
-.ulala .main-color {
-  color: #ff8c00;
-}
+.ulala .main-color { color: #ff8c00; }
+.ulala .main-color-darken { color: #b86700; }
+.ulala .main-color-darken-2 { color: #935100; }
+.ulala .main-color-darken-3 { color: #613800; }
+.ulala .main-color-darken-4 { color: #392000; }
