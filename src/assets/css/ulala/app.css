@@ -4,7 +4,7 @@
   height: var(--app-height);
   padding-top: var(--app-offset-top);
   overflow: hidden;
-  background: radial-gradient(circle, #fdedd4 24%, #ffd3a6 100%);
+  background: radial-gradient(circle, #fff6f3 24%, #ffeecc 100%);
 }
 
 .ulala .app {
