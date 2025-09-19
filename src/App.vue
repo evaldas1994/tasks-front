@@ -2,9 +2,16 @@
   <div :class="themeClass">
     <router-view />
 
-    <nav v-if="themeClass && route.path !== '/login'" class="bottom-nav">
+    <nav
+      v-if="
+        themeClass
+        && route.path !== '/login'
+        && ['ulala'].includes(themeClass)
+      "
+      class="bottom-nav">
       <button><i class="bi bi-plus-square"></i></button>
       <button @click="goBack"><i class="bi bi-arrow-left-square"></i></button>
+      <button @click="logout"><i class="bi bi-arrow-bar-right"></i></button>
     </nav>
   </div>
 </template>
@@ -39,5 +46,22 @@ const goBack = () => {
   } else {
     console.log('Nėra kur grįžti, likame app viduje')
   }
+}
+
+// Logout funkcija
+const logout = () => {
+  // Išvalome vartotojo informaciją iš Pinia store
+  userStore.$reset()
+
+  // (neprivaloma) išvalome localStorage / sessionStorage jei naudojama
+  localStorage.removeItem('user')
+  sessionStorage.removeItem('user')
+
+  // Resetinam temą
+  document.body.className = ''
+  themeClass.value = 'default'
+
+  // Nukreipiame į login puslapį
+  router.push('/login')
 }
 </script>
