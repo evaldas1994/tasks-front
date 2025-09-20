@@ -4,14 +4,32 @@
 
     <nav
       v-if="
-        themeClass
-        && route.path !== '/login'
-        && ['ulala'].includes(themeClass)
+        themeClass &&
+        route.path !== '/login' &&
+        ['ulala'].includes(themeClass)
       "
       class="bottom-nav">
-      <button><i class="bi bi-plus-square"></i></button>
-      <button @click="goBack"><i class="bi bi-arrow-left-square"></i></button>
-      <button @click="logout"><i class="bi bi-arrow-bar-right"></i></button>
+
+      <!-- Paslėptas failų input -->
+      <input
+        type="file"
+        ref="fileInput"
+        class="d-none"
+        @change="onFileChange"
+      />
+
+      <!-- Mygtukai -->
+      <button @click="openFilePicker">
+        <i class="bi bi-plus-square"></i>
+      </button>
+
+      <button @click="goBack">
+        <i class="bi bi-arrow-left-square"></i>
+      </button>
+
+      <button @click="logout">
+        <i class="bi bi-arrow-bar-right"></i>
+      </button>
     </nav>
   </div>
 </template>
@@ -26,6 +44,8 @@ const route = useRoute()
 const userStore = useUserStore()
 const themeClass = ref('default')
 
+const fileInput = ref(null)
+
 // Dinaminis vh aukštis
 const setAppHeight = () => {
   document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`)
@@ -39,21 +59,36 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('resize', setAppHeight)
 })
+
 // Stebim vartotoją
 watch(() => userStore.user, (user) => {
   if (!user) {
     document.body.className = '' // reset
-
     return
   }
 
   document.body.className = user.pwa_project_code
-  themeClass.value = user.pwa_project_code  // pvz. 'if' arba 'ulala'
+  themeClass.value = user.pwa_project_code
 }, { immediate: true })
+
+// Funkcija atidaryti failų pasirinkimą
+const openFilePicker = () => {
+  if (fileInput.value) {
+    fileInput.value.click()
+  }
+}
+
+// Failų pasirinkimo handleris
+const onFileChange = (event) => {
+  const files = event.target.files
+  if (files.length > 0) {
+    console.log('Pasirinkti failai:', files)
+    // čia gali siųsti į serverį arba rodyti peržiūrą
+  }
+}
 
 // Funkcija „Back“
 const goBack = () => {
-  // Patikriname, ar yra kur grįžti
   if (window.history.length > 1) {
     router.back()
   } else {
@@ -63,14 +98,9 @@ const goBack = () => {
 
 // Logout funkcija
 const logout = () => {
-  // Išvalome vartotojo informaciją iš Pinia store
   userStore.$reset()
-
-  // Resetinam temą
   document.body.className = ''
   themeClass.value = 'default'
-
-  // Nukreipiame į login puslapį
   router.push('/login')
 }
 </script>
